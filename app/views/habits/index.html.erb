@@ -1,0 +1,5 @@
+<%@habits.each do |habit| %>
+  <%= habit.levels.count %> <br/> 
+<%end%>
+<br/>
+<%=link_to "NEW", new_habit_path %>
