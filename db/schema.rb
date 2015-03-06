@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150305054624) do
   create_table "days", force: true do |t|
     t.integer "level_id"
     t.integer "habit_id"
-    t.integer "user_id" #no 
+    t.integer "user_id" 
     t.boolean "missed",   default: false
   end
 

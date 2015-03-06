@@ -1,9 +1,5 @@
-<h1>Pidaras</h1>
-
 <%= form_for @habit do |habit| %>
-
   <% 5.times.each_with_index do |number, index| %>
-    
     <h1>Level <%= index + 1 %></h1>
     <%= habit.fields_for :levels do |level| %>
       <%= level.fields_for :days do |day| %>
@@ -12,7 +8,5 @@
       <% end %>
     <% end %>
   <% end %>
-
-<%= habit.submit "submit" %>
-
+  <%= habit.submit "submit" %>
 <% end %>
