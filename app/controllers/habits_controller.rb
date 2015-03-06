@@ -27,7 +27,12 @@ class HabitsController < ApplicationController
   private
 
   def habit_params
-    params.require(:habit).permit(:user_id, levels_attributes:[:passed, days_attributes:[:missed,:level_id]])
+    params.require(:habit).permit(
+      :user_id,
+      levels_attributes:[
+      :passed,
+      days_attributes:[
+      :missed,:level_id]])
   end
 
   def set_user

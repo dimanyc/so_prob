@@ -5,9 +5,11 @@ class Level < ActiveRecord::Base
 
   accepts_nested_attributes_for :days
 
-  def successful? 
-    if days.where( missed: true ).count == 3
-      update_attributes( passed:false )
+  def evaluate
+    if days.where(missed: true ).count == 3
+      update_attributes(passed: false)
+    else
+      update_attributes(passed: true)
     end
   end
 

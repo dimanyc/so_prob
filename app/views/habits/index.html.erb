@@ -1,5 +1,6 @@
 <%@habits.each do |habit| %>
   <%= habit.levels.count %> <br/> 
+  <%= User.find(1).missed_days %>
 <%end%>
 <br/>
 <%=link_to "NEW", new_habit_path %>

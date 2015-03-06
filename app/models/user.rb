@@ -6,5 +6,4 @@ class User < ActiveRecord::Base
   serialize :missed_days, Array
   serialize :missed_levels, Array
 
-
 end

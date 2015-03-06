@@ -1,5 +1,5 @@
 class Day < ActiveRecord::Base
   belongs_to :level
-  belongs_to :user
+  belongs_to :habit 
 
 end

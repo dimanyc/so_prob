@@ -6,8 +6,6 @@
     
     <h1>Level <%= index + 1 %></h1>
     <%= habit.fields_for :levels do |level| %>
-    <%= level.label :passed %>
-    <%= level.check_box :passed %> <br/>
       <%= level.fields_for :days do |day| %>
         <%= day.label :missed %>
         <%= day.check_box :missed %> <br/>

@@ -7,39 +7,13 @@ class Habit < ActiveRecord::Base
 
 
   def evaluate(user)
-      
-    levels.each do |level| 
-
-      if level.days.where(missed:true).count == 3
-        level.passed = true
-        level.save
-        user.missed_levels << level.id 
-        user.save
-
-        level.days.each do |day|
-          unless day.missed == true 
-            user.missed_days << day.id 
-            user.save
-          end
-
-        end
-      end 
-
-    end
-#    if levels.days.where(missed:true).count == 3 
-    #if days.where(missed: true).count == 3 
-
+    
+    levels.each { |level| level.evaluate }
+    user.missed_levels << levels.where(passed: false).ids 
+    user.missed_days << days.where(missed: true).ids 
+    user.save
 
   end
-  
-
-
-  def evaluate_missed(days,user)
-    strikes = days / 3 
-    user.update_attributes(strikes: strikes)
-  end
-
-
 
     
 end
